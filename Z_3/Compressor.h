@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef IMAGE_COMPRESSOR_H
 #define IMAGE_COMPRESSOR_H
 using namespace std;

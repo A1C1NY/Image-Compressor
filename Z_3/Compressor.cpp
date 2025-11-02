@@ -89,7 +89,7 @@ bool Compressor::compressImage(BYTE* originalRgbData, UINT originalWidth, UINT o
 	info.originalHeight = originalHeight;
 	info.decompositionLevel = decompositionLevel;
 	info.threshold = threshold;
-	info.compressedDataSize = encodedData.size();
+	info.compressedDataSize = static_cast<UINT>(encodedData.size());
 
 	ofs.write(reinterpret_cast<const char*>(&info), sizeof(CompressedImageInfo));
 
@@ -253,8 +253,8 @@ void Compressor::inverseHaar1D(vector<double>& data, int len) {
 
 // 2D的Haar小波变换，用于图片各通道数据处理
 void Compressor::haar2D(vector<vector<double>>& block) {
-	int rows = block.size();
-	int cols = block[0].size();
+	int rows = static_cast<int>(block.size());
+	int cols = static_cast<int>(block[0].size());
 
 	// 先对row进行一轮1D变换
 	for (size_t i = 0; i < rows; ++i) {
@@ -276,8 +276,8 @@ void Compressor::haar2D(vector<vector<double>>& block) {
 
 // 2DHaar小波变换解码
 void Compressor::inverseHaar2D(vector<vector<double>>& block) {
-	int rows = block.size();
-	int cols = block[0].size();
+	int rows = static_cast<int>(block.size());
+	int cols = static_cast<int>(block[0].size());
 
 	// 与编码相反的步骤，先对col解码
 	for (size_t j = 0; j < cols; ++j) {
@@ -574,7 +574,7 @@ HuffmanNode* Compressor::deserialize(ifstream& ifs) {
 
 // 将bit流写入文件，需要打包为字节传入
 void Compressor::writeCompressedData(ofstream& ofs, vector<bool>& data) {
-	UINT bitCount = data.size();
+	UINT bitCount = static_cast<UINT>(data.size());
 	// 先写入压缩数据长度信息
 	ofs.write(reinterpret_cast<const char*>(&bitCount), sizeof(UINT));
 
