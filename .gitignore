@@ -363,3 +363,10 @@ MigrationBackup/
 FodyWeavers.xsd
 /数据压缩原理及应用_第2版_David_Salomon.pdf
 /数据压缩导论_第4版_贾洪峰.pdf
+/Z_3/compressed_lena3.dat
+/Z_3/decompressed_lena2.dat
+/Z_3/decompressed_lena1.bit
+/Z_3/decompressed_output.dat
+/Z_3/lena2.png
+/Z_3/decompressed_output.png
+/Z_3/lena3.png
